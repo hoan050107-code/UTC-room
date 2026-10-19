@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>UTC Room - Quản lý lịch học</title>
+  <link href="chung.css" rel="stylesheet"/>
+  <link href="quan-ly-lich-hoc.css" rel="stylesheet"/>
+</head>
+<body data-module="schedule">
+
+  <section aria-hidden="true" class="login-overlay hidden" id="adminLoginPage">
+    <form aria-labelledby="loginTitle" aria-modal="true" class="login-card" id="adminLoginForm" role="dialog">
+      <div class="logo-icon" style="margin: 0 auto 18px;">
+        UTC
+      </div>
+      <h1 id="loginTitle">
+        Đăng nhập quản trị
+      </h1>
+      <p>
+        Đăng nhập để sử dụng các chức năng quản lý
+      </p>
+      <label for="adminUsername">
+        Tên đăng nhập
+      </label>
+      <input autocomplete="username" id="adminUsername" name="username" placeholder="Nhập tài khoản quản trị" required type="text"/>
+      <label for="adminPassword">
+        Mật khẩu
+      </label>
+      <input autocomplete="current-password" id="adminPassword" name="password" placeholder="Nhập mật khẩu" required type="password"/>
+      <button class="login-submit" type="submit">
+        Đăng nhập
+      </button>
+      <p aria-live="polite" id="loginMessage" role="alert"></p>
+    </form>
+  </section>
+
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">
+          UTC
+        </div>
+        <div>
+          <h2>UTC Room</h2>
+          <p>Quản lý phòng học</p>
+        </div>
+      </div>
+      <div class="menu-title">
+        MENU CHÍNH
+      </div>
+      <nav>
+        <a class="menu-item" href="tong-quan.html">
+          <span>▦</span> Tổng quan
+        </a>
+        <a class="menu-item" href="quan-ly-phong.html">
+          <span>▤</span> Quản lý phòng học
+        </a>
+        <a class="menu-item active" href="quan-ly-lich-hoc.html">
+          <span>▦</span> Quản lý lịch học
+        </a>
+        <a class="menu-item" href="quan-ly-thiet-bi.html">
+          <span>⚙</span> Quản lý thiết bị
+        </a>
+        <a class="menu-item" href="bao-cao.html">
+          <span>▥</span> Báo cáo
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-avatar">
+          AD
+        </div>
+        <div class="user-info">
+          <strong>Quản trị viên</strong>
+          <span>Administrator</span>
+          <button class="btn btn-secondary btn-small hidden" id="adminLogoutButton" type="button">
+            Đăng xuất
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1 id="page-title">Quản lý lịch học</h1>
+          <p>Hệ thống quản lý phòng học UTC</p>
+        </div>
+        <div class="topbar-right">
+          <span class="today" id="today"></span>
+          <button class="btn btn-primary btn-small" id="adminLoginButton" type="button">
+            Đăng nhập Admin
+          </button>
+          <div class="avatar">
+            AD
+          </div>
+        </div>
+      </header>
+
+      <section class="page active">
+        <div class="content-card">
+          <!-- Tiêu đề và nút thao tác -->
+          <div class="card-header">
+            <div>
+              <h3>Quản lý lịch học</h3>
+              <p>Theo dõi, tìm kiếm, thêm và xóa lịch học.</p>
+            </div>
+            <button class="btn btn-primary" id="add-schedule-btn">
+              + Thêm lịch
+            </button>
+          </div>
+
+          <div class="toolbar">
+            <input id="schedule-search" placeholder="Tìm môn học, phòng, giảng viên hoặc lớp..." type="text"/>
+            <input aria-label="Lọc theo ngày" id="schedule-date-filter" type="date"/>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ngày học</th>
+                  <th>Môn học</th>
+                  <th>Phòng</th>
+                  <th>Giảng viên</th>
+                  <th>Thời gian</th>
+                  <th>Lớp</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="schedule-list">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="chung.js"></script>
+  <script src="quan-ly-lich-hoc.js"></script>
+</body>
+</html>

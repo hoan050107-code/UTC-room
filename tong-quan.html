@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>UTC Room - Tổng quan</title>
+  <link href="chung.css" rel="stylesheet"/>
+  <link href="tong-quan.css" rel="stylesheet"/>
+</head>
+<body data-module="dashboard">
+
+  <section aria-hidden="true" class="login-overlay hidden" id="adminLoginPage">
+    <form aria-labelledby="loginTitle" aria-modal="true" class="login-card" id="adminLoginForm" role="dialog">
+      <div class="logo-icon" style="margin: 0 auto 18px;">
+        UTC
+      </div>
+      <h1 id="loginTitle">
+        Đăng nhập quản trị
+      </h1>
+      <p>
+        Đăng nhập để sử dụng các chức năng quản lý
+      </p>
+      <label for="adminUsername">
+        Tên đăng nhập
+      </label>
+      <input autocomplete="username" id="adminUsername" name="username" placeholder="Nhập tài khoản quản trị" required type="text"/>
+      <label for="adminPassword">
+        Mật khẩu
+      </label>
+      <input autocomplete="current-password" id="adminPassword" name="password" placeholder="Nhập mật khẩu" required type="password"/>
+      <button class="login-submit" type="submit">
+        Đăng nhập
+      </button>
+      <p aria-live="polite" id="loginMessage" role="alert"></p>
+    </form>
+  </section>
+
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">
+          UTC
+        </div>
+        <div>
+          <h2>UTC Room</h2>
+          <p>Quản lý phòng học</p>
+        </div>
+      </div>
+      <div class="menu-title">
+        MENU CHÍNH
+      </div>
+      <nav>
+        <a class="menu-item active" href="tong-quan.html">
+          <span>▦</span> Tổng quan
+        </a>
+        <a class="menu-item" href="quan-ly-phong.html">
+          <span>▤</span> Quản lý phòng học
+        </a>
+        <a class="menu-item" href="quan-ly-lich-hoc.html">
+          <span>▦</span> Quản lý lịch học
+        </a>
+        <a class="menu-item" href="quan-ly-thiet-bi.html">
+          <span>⚙</span> Quản lý thiết bị
+        </a>
+        <a class="menu-item" href="bao-cao.html">
+          <span>▥</span> Báo cáo
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-avatar">
+          AD
+        </div>
+        <div class="user-info">
+          <strong>Quản trị viên</strong>
+          <span>Administrator</span>
+          <button class="btn btn-secondary btn-small hidden" id="adminLogoutButton" type="button">
+            Đăng xuất
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1 id="page-title">Tổng quan</h1>
+          <p>Hệ thống quản lý phòng học UTC</p>
+        </div>
+        <div class="topbar-right">
+          <span class="today" id="today"></span>
+          <button class="btn btn-primary btn-small" id="adminLoginButton" type="button">
+            Đăng nhập Admin
+          </button>
+          <div class="avatar">
+            AD
+          </div>
+        </div>
+      </header>
+
+      <section class="page active">
+        <!-- Khối chào mừng -->
+        <div class="welcome">
+          <div>
+            <h2>Xin chào, Quản trị viên!</h2>
+            <p>Chúc bạn một ngày làm việc hiệu quả.</p>
+          </div>
+          <div class="welcome-icon">
+            🏫
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon green">🏫</div>
+            <div>
+              <p>Tổng số phòng</p>
+              <h2 id="total-rooms">0</h2>
+              <span>Phòng học hiện có</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon blue">📅</div>
+            <div>
+              <p>Lịch học hôm nay</p>
+              <h2 id="today-schedules">0</h2>
+              <span>Lịch học trong ngày</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon purple">🖥️</div>
+            <div>
+              <p>Tổng thiết bị</p>
+              <h2 id="total-equipment">0</h2>
+              <span>Thiết bị được quản lý</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <div class="card-header">
+            <div>
+              <h3>Danh sách phòng học</h3>
+              <p>Theo dõi tình trạng phòng học.</p>
+            </div>
+            <a class="btn btn-primary" href="quan-ly-phong.html">
+              Quản lý phòng &rarr;
+            </a>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mã phòng</th>
+                  <th>Tên phòng</th>
+                  <th>Sức chứa</th>
+                  <th>Loại phòng</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-room-list">
+            
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <div class="card-header">
+            <div>
+              <h3>Lịch học sắp tới</h3>
+              <p>Các lịch học gần nhất.</p>
+            </div>
+            <a class="btn btn-primary" href="quan-ly-lich-hoc.html">
+              Xem lịch học &rarr;
+            </a>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ngày học</th>
+                  <th>Môn học</th>
+                  <th>Phòng</th>
+                  <th>Giảng viên</th>
+                  <th>Thời gian</th>
+                  <th>Lớp</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-schedule-list">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="chung.js"></script>
+  <script src="tong-quan.js"></script>
+</body>
+</html>
